@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    padding: 15px;
+    display: flex;
+    gap: 80px;
+    height: 13vh;
+    width: 100%;
+    background-color: rgba(68, 68, 230, 0.808);
+}
+
+.logo img {
+    width: 100px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+input {
+    width: 60vw;
+    height: 30px;
+}
+
+.areaCliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+    gap: 80px;
+}
+
+.logImg {
+    width: 60px;
+    height: 60px;
+}
+
+.login {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.login p {
+    margin-top: 30px;
+}
+
+.carrinho {
+    display: flex;
+    gap: 50px;
+    height: 40px;
+}
+
+#carrossel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55vh;
+    background-color: aqua;
+}
+
+#bgCarrossel {
+    margin-top: 115px;
+    background-color: purple;
+    width: 70%;
+    height: 70%;
+}
+
+.promocoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45vh;
+    background-color: red;
+}
+
+.cards {
+    background-color: black;
+    width: 85%;
+    height: 100%;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: rgb(72, 72, 235);
+}
