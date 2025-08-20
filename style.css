@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+:root {
+    --roxo: #B266FF;
+    --vermelho: #B00020;
+    --rosado: #E91E63;
+    --cinza: #1F1F1F;
+    --preto: #0D0D0D;
+}
+
 header {
     position: fixed;
     padding: 15px;
@@ -11,7 +19,8 @@ header {
     gap: 80px;
     height: 13vh;
     width: 100%;
-    background-color: rgba(68, 68, 230, 0.808);
+    z-index: 99;
+    background-color: rgb(68, 68, 230);
 }
 
 .logo img {
@@ -67,15 +76,19 @@ input {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 55vh;
+    height: 75vh;
     background-color: aqua;
+    animation: slide 20s infinite, fade 20s;
 }
 
 #bgCarrossel {
     margin-top: 115px;
-    background-color: purple;
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: slider 20s infinite, fade 20s;
 }
 
 .promocoes {
@@ -101,4 +114,41 @@ h2 {
     height: 50px;
     color: white;
     background-color: rgb(72, 72, 235);
+}
+
+@keyframes slider {
+    0%, 24% {
+        background-image: url(./img/tecladoCarrossel.png);
+    }
+    25%, 49% {
+        background-image: url(./img/jblCarrossel.png);
+    }
+    50%, 74% {
+        background-image: url(./img/cameraCarrossel.png);
+    }
+    75%, 100% {
+        background-image: url(./img/monitorCarrossel.png);
+    }
+}
+
+@keyframes slide {
+    0%, 24% {
+        background-color: var(--rosado);
+    }
+    25%, 49% {
+        background-color: var(--cinza);
+    }
+    50%, 74% {
+        background-color: var(--preto);
+    }
+    75%, 100% {
+        background-color: var(--cinza);
+    }
+}
+
+
+@keyframes fade {
+    0% {opacity: 0;}
+    15%, 85% {opacity: 1;}
+    100% {opacity: 0;}
 }
