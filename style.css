@@ -5,11 +5,11 @@
 }
 
 :root {
-    --roxo: #B266FF;
-    --vermelho: #B00020;
-    --rosado: #E91E63;
-    --cinza: #1F1F1F;
+    --vermelho: #D62828;
     --preto: #0D0D0D;
+    --cinza_escuro: #1D1D1D;
+    --cinza_mediano: #616161;
+    --cinza_claro: #BDBDBD;
 }
 
 header {
@@ -20,7 +20,8 @@ header {
     height: 13vh;
     width: 100%;
     z-index: 99;
-    background-color: rgb(68, 68, 230);
+    color: white;
+    background-color: var(--preto);
 }
 
 .logo img {
@@ -77,17 +78,17 @@ input {
     align-items: center;
     width: 100%;
     height: 75vh;
-    animation: slide 25s infinite, fade 25s;
+    animation: slide 28s infinite, fade 28s;
 }
 
 #bgCarrossel {
     margin-top: 115px;
     width: 100%;
     height: 80%;
-    background-size: contain;
+    background-size: 75% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    animation: slider 25s infinite, fade 25s;
+    animation: slider 28s infinite, fade 28s;
 }
 
 .promocoes {
@@ -96,11 +97,12 @@ input {
     align-items: center;
     width: 100%;
     height: 55vh;
-    animation: slide 25s infinite, fade 25s;
+    animation: slide 28s infinite, fade 28s;
+    background-color: #1F1F1F;
 }
 
 .cards {
-    background-color: white;
+    background-color: rgb(248, 248, 248);
     width: 75%;
     height: 90%;
 }
@@ -112,42 +114,141 @@ h2 {
     width: 100%;
     height: 50px;
     color: white;
-    background-color: rgb(72, 72, 235);
+    background-color: var(--vermelho);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 15px;
+    width: 250px;
+    height: 350px;
+    background-color: aliceblue;
+    transition: 0.5s ease;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 3px 3px 15px #1f1f1f8c;
+
+}
+
+.nome {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.descricao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 80px;
+}
+
+.cardImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.produtoCard {
+    width: 70%;
+    height: 70%;
+}
+
+.preco {
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.cardImgs {
+    display: flex;
+    width: 200px;
+    gap: 10px;
+}
+
+.preco {
+    gap: 100px;
+    margin-top: 10px;
+}
+
+.preco img {
+    width: 30px;
+    height: 30px;
+}
+
+.preco p {
+    min-width: 70px;
 }
 
 @keyframes slider {
-    0%, 24% {
-        background-image: url(./img/tecladoCarrossel.png);
+
+    0%,
+    24% {
+        background-image: url(./img/Copilot_20250820_202111.png);
     }
-    25%, 49% {
-        background-image: url(./img/jblCarrossel.png);
+
+    25%,
+    49% {
+        background-image: url(./img/jblCarr.png);
     }
-    50%, 74% {
-        background-image: url(./img/cameraCarrossel.png);
-    }
-    75%, 100% {
+
+    50%,
+    74% {
         background-image: url(./img/monitorCarrossel.png);
+    }
+
+    75%,
+    100% {
+        background-image: url(./img/cameraCarrossel.png);
     }
 }
 
 @keyframes slide {
-    0%, 24% {
-        background-color: var(--rosado);
+
+    0%,
+    24% {
+        /* background-color: var(--cinza_claro); */
+        background: #0D0D0D;
+background: linear-gradient(90deg, rgba(13, 13, 13, 1) 13%, rgba(189, 189, 189, 1) 55%, rgba(255, 255, 255, 1) 95%);
     }
-    25%, 49% {
-        background-color: var(--cinza);
-    }
-    50%, 74% {
+
+    25%,
+    49% {
         background-color: var(--preto);
     }
-    75%, 100% {
-        background-color: var(--cinza);
+
+    50%,
+    74% {
+        background-color: var(--cinza_escuro);
+    }
+
+    75%,
+    100% {
+        background-color: white;
     }
 }
 
 
 @keyframes fade {
-    0% {opacity: 1;}
-    15%, 85% {opacity: 1;}
-    100% {opacity: 1;}
+    0% {
+        opacity: 1;
+    }
+
+    15%,
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
