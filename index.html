@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="./app.js" defer type="module"></script>
     <title>Document</title>
 </head>
 
@@ -36,29 +37,37 @@
         </div>
     </header>
     <main>
-        <div id="carrossel">
-            <div id="bgCarrossel"></div>
-        </div>
-        <section class="promocoes">
-            <div class="cards">
-                <h2>PROMOÇÕES</h2>
-                <div class="card">
-                    <p class="nome">Teclado Mecanico</p>
-                    <div class="cardImg">
-                        <img class="produtoCard" src="./img/teclado-mecanico-redragon-kumara.png" alt="">
-                    </div>
-                    <span class="descricao">Lorem ipsum dolor sit amet c Nam tio veritatis aspe</span>
-                    <div class="preco">
-                        <p>R$ 299,99</p>
-                        <div class="cardImgs">
-                            <img src="./img/cartCard.png" alt="">
-                            <img src="./img/Favorite.png" alt="">
-                        </div>
-                    </div>
-                </div>
+        <div class="fundoGradiente">
+            <div id="carrossel">
+                <div id="bgCarrossel"></div>
             </div>
-        </section>
-        <section class="produtos"></section>
+            <section class="informatica">
+                <button class="moverParaEsquerda" id="moverParaEsquerdaInformatica">
+                    <img class="setaMoverCarrossel" src="./img/setaEsquerda.png" alt="">
+                </button>
+                <div class="cards" id="cardsInformatica">
+                    <h2>INFORMÁTICA</h2>
+                    <div class="container" id="containerInformatica"></div>
+                </div>
+                <button class="moverParaDireita" id="moverParaDireitaInformatica">
+                    <img class="setaMoverCarrossel" src="./img/setDireita.png" alt="">
+                </button>
+            </section>
+        </div>
+
+        <section class="eletronicos">
+                <button class="moverParaEsquerda">
+                    <img class="setaMoverCarrossel" src="./img/setaEsquerda.png" alt="">
+                </button>
+                <div class="cards">
+                    <h2>ELETRÔNICOS</h2>
+                    <div class="container" id="containerEletronicos"></div>
+                </div>
+                <button class="moverParaDireita">
+                    <img class="setaMoverCarrossel" src="./img/setDireita.png" alt="">
+                </button>
+            </section>
+
     </main>
     <footer></footer>
 
