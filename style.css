@@ -139,8 +139,8 @@ h2 {
     padding: 5px;
     margin: 15px;
     border-radius: 15px;
-    width: 13vw;
-    height: 37vh;
+    width: 240px;
+    height: 340px;
     background-color: aliceblue;
     transition: 0.5s ease;
 }
@@ -148,6 +148,16 @@ h2 {
 .card:hover {
     transform: scale(1.01);
     box-shadow: 3px 3px 15px #1f1f1f8c;
+}
+
+.card:hover .nome {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.card:hover .cardImgs {
+    display: flex;
 }
 
 .none {
@@ -202,13 +212,28 @@ h2 {
 .nome {
     display: flex;
     justify-content: center;
-    padding-top: 15px;
-    width: 100%;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 230px;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--cinza_escuro);
 }
 
-.produtoCard {
-    width: 70%;
-    height: 70%;
+.cardImgs {
+    display: none;
+    flex-direction: row-reverse;
+    padding: 10px;
+    width: 100%;
+    gap: 10px;
+    height: 50px;
+}
+
+.cardImgs img {
+    width: 25px;
+    height: 25px;
 }
 
 .cardImg {
@@ -219,11 +244,19 @@ h2 {
     height: 50%;
 }
 
+.produtoCard {
+    width: 70%;
+    height: 70%;
+}
+
 .descricao {
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: var(--cinza_mediano);
 }
 
 .preco {
@@ -233,15 +266,12 @@ h2 {
     padding-right: 20px;
 }
 
-.cardImgs {
-    display: flex;
-    width: 200px;
-    gap: 10px;
-}
-
 .preco {
-    gap: 100px;
+    gap: 55px;
     margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--vermelho);
+    font-weight: 550;
 }
 
 .preco img {
@@ -250,7 +280,16 @@ h2 {
 }
 
 .preco p {
-    min-width: 70px;
+    min-width: 90px;
+}
+
+.avaliacao {
+    display: flex;
+}
+
+.avaliacao img {
+    width: 15px;
+    height: 15px;
 }
 
 

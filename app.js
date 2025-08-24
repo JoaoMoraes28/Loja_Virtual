@@ -14,6 +14,7 @@ function gerarCardInformatica(produto) {
     if (produto.categoria == 'Informática') {
         const divContainer = document.getElementById('containerInformatica')
         const card = document.createElement('div')
+        const divAvaliacao = document.createElement('div')
         const pNome = document.createElement('p')
         const divImg = document.createElement('div')
         const imgProduto = document.createElement('img')
@@ -26,9 +27,9 @@ function gerarCardInformatica(produto) {
 
         //INSERINDO ELEMENTOS EM SUAS DIVS
         divContainer.appendChild(card)
-        card.append(pNome, divImg, imgProduto, span, divInfo, pPreco, divCartFav, cart, fav)
+        card.append(divCartFav, pNome, divImg, span, divInfo, divAvaliacao)
         divImg.appendChild(imgProduto)
-        divInfo.append(pPreco, divCartFav)
+        divInfo.append(pPreco, divAvaliacao)
         divCartFav.append(cart, fav)
 
         //ADICIONANDO ELEMENTOS AS SUAS CLASSES
@@ -39,14 +40,27 @@ function gerarCardInformatica(produto) {
         span.classList.add('descricao')
         divInfo.classList.add('preco')
         divCartFav.classList.add('cardImgs')
+        divAvaliacao.classList.add('avaliacao')
 
         //INSERINDO DADOS NO CARD
         pNome.innerHTML = produto.nome
         imgProduto.src = produto.imagem
         span.innerHTML = produto.descricao
-        pPreco.innerHTML = produto.preco
+        pPreco.innerHTML = `R$ ${produto.preco}`
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
+
+        let totalEstrelas = 0
+        while (totalEstrelas < 5) {
+            let avaliacaoEstrelas = document.createElement('img')
+            if (totalEstrelas < produto.classificacao) {
+                avaliacaoEstrelas.src = './img/redStar.png'
+            } else {
+                avaliacaoEstrelas.src = './img/greyStar.png'
+            }
+            divAvaliacao.appendChild(avaliacaoEstrelas)
+            totalEstrelas++
+        }
 
         if (informaticaVisiveis > 3) {
             card.classList.add('none')
@@ -67,6 +81,7 @@ function gerarCardEletronicos(produto) {
     if (produto.categoria == 'Eletrônicos') {
         const divContainer = document.getElementById('containerEletronicos')
         const card = document.createElement('div')
+        const divAvaliacao = document.createElement('div')
         const pNome = document.createElement('p')
         const divImg = document.createElement('div')
         const imgProduto = document.createElement('img')
@@ -79,9 +94,9 @@ function gerarCardEletronicos(produto) {
 
         //INSERINDO ELEMENTOS EM SUAS DIVS
         divContainer.appendChild(card)
-        card.append(pNome, divImg, imgProduto, span, divInfo, pPreco, divCartFav, cart, fav)
+        card.append(divCartFav, pNome, divImg, span, divInfo, divAvaliacao)
         divImg.appendChild(imgProduto)
-        divInfo.append(pPreco, divCartFav)
+        divInfo.append(pPreco, divAvaliacao)
         divCartFav.append(cart, fav)
 
         //ADICIONANDO ELEMENTOS AS SUAS CLASSES
@@ -92,6 +107,7 @@ function gerarCardEletronicos(produto) {
         span.classList.add('descricao')
         divInfo.classList.add('preco')
         divCartFav.classList.add('cardImgs')
+        divAvaliacao.classList.add('avaliacao')
 
         //INSERINDO DADOS NO CARD
         pNome.innerHTML = produto.nome
@@ -101,10 +117,23 @@ function gerarCardEletronicos(produto) {
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
 
+        let totalEstrelas = 0
+        while (totalEstrelas < 5) {
+            let avaliacaoEstrelas = document.createElement('img')
+            if (totalEstrelas < produto.classificacao) {
+                avaliacaoEstrelas.src = './img/redStar.png'
+            } else {
+                avaliacaoEstrelas.src = './img/greyStar.png'
+            }
+            divAvaliacao.appendChild(avaliacaoEstrelas)
+            totalEstrelas++
+        }
+
         if (eletronicosVisiveis > 3) {
             card.classList.add('none')
         }
         eletronicosVisiveis++
+        quantidadeCardsEletronico++
     }
 
 
@@ -149,7 +178,6 @@ function rodarEsquerda() {
         botaoEsquerda.style.backgroundColor = 'var(--cinza_claro)'
     }
 }
-
 
 botaoEsquerda.addEventListener('click', rodarEsquerda)
 botaoDireita.addEventListener('click', rodarDireita)
