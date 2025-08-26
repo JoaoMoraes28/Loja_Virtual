@@ -9,17 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="./app.js" defer type="module"></script>
-    <title>Document</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <title>Nextron! | Hardware e Eletrônicos</title>
 </head>
 
 <body>
 
     <header>
         <div class="logo">
-            <img src="./img/icon.png" alt="">
+            <img src="./img/logoPrincipal.png" alt="">
         </div>
         <div class="itens">
-            <input type="text" placeholder="Busque aqui seu produto">
+            <input type="text" placeholder="Busque na Nextron">
             <ul>
                 <li>Vendas</li>
                 <li>Hardware</li>
@@ -57,16 +58,21 @@
                 </button>
             </section>
         </div>
-
+        <section class="anuncios">
+            <div class="imgAnuncios">
+                <img src="./img/anuncio1.png" alt="">
+                <img src="./img/anuncio2.png" alt="">
+            </div>
+        </section>
         <section class="eletronicos">
-            <button class="moverParaEsquerda">
+            <button class="moverParaEsquerda" id="moverParaEsquerdaEletronicos">
                 <img class="setaMoverCarrossel" src="./img/setaEsquerda.png" alt="">
             </button>
             <div class="cards">
                 <h2>ELETRÔNICOS</h2>
                 <div class="container" id="containerEletronicos"></div>
             </div>
-            <button class="moverParaDireita">
+            <button class="moverParaDireita" id="moverParaDireitaEletronicos">
                 <img class="setaMoverCarrossel" src="./img/setDireita.png" alt="">
             </button>
         </section>

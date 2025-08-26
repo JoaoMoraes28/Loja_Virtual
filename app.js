@@ -2,8 +2,10 @@
 
 import produtos from "./produtos_atualizados.json" with {type: "json"}
 
-const botaoDireita = document.getElementById('moverParaDireitaInformatica')
-const botaoEsquerda = document.getElementById('moverParaEsquerdaInformatica')
+const botaoDireitaInformatica = document.getElementById('moverParaDireitaInformatica')
+const botaoEsquerdaInformatica = document.getElementById('moverParaEsquerdaInformatica')
+const botaoDireitaEletronicos = document.getElementById('moverParaDireitaEletronicos')
+const botaoEsquerdaEletronicos = document.getElementById('moverParaEsquerdaEletronicos')
 
 //VARIÁVEL PARA OCULTAR EXCENDENTE DE CARDS PARA A SECTION INFORMÁTICA
 var informaticaVisiveis = 0
@@ -68,8 +70,11 @@ function gerarCardInformatica(produto) {
         informaticaVisiveis++
         quantidadeCardsInformatica++
     }
+}
 
-
+if (quantidadeCardsInformatica <= 4) {
+    botaoDireitaEletronicos.style.display = 'none'
+    botaoEsquerdaEletronicos.style.display = 'none'
 }
 
 //VARIÁVEL PARA OCULTAR EXCEDENTE DE CARDS PARA A SECTION DE ELETRÔNICOS
@@ -113,7 +118,7 @@ function gerarCardEletronicos(produto) {
         pNome.innerHTML = produto.nome
         imgProduto.src = produto.imagem
         span.innerHTML = produto.descricao
-        pPreco.innerHTML = produto.preco
+        pPreco.innerHTML = `R$ ${produto.preco}`
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
 
@@ -135,39 +140,43 @@ function gerarCardEletronicos(produto) {
         eletronicosVisiveis++
         quantidadeCardsEletronico++
     }
+}
 
-
+if (quantidadeCardsEletronico <= 4) {
+    botaoDireitaEletronicos.style.display = 'none'
+    botaoEsquerdaEletronicos.style.display = 'none'
 }
 
 //VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL
 var contagemCardsDireita = 5
 var contagemCardsEsquerda = 1
 
-function rodarDireita() {
+function rodarDireitaInformatica() {
 
     //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
     //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
     if (contagemCardsDireita <= quantidadeCardsInformatica && contagemCardsEsquerda >= 1) {
-        botaoEsquerda.style.backgroundColor = 'white'
-        const cardDireita = document.querySelector(`.card:nth-child(${contagemCardsDireita})`)
+        botaoEsquerdaInformatica.style.backgroundColor = 'white'
+        const cardDireita = document.querySelector(`#containerInformatica .card:nth-child(${contagemCardsDireita})`)
         cardDireita.classList.toggle('none')
         contagemCardsDireita++
 
-        const cardEsquerda = document.querySelector(`.card:nth-child(${contagemCardsEsquerda})`)
+        const cardEsquerda = document.querySelector(`#containerInformatica .card:nth-child(${contagemCardsEsquerda})`)
         cardEsquerda.classList.toggle('none')
         contagemCardsEsquerda++
     } else {
-        botaoDireita.style.backgroundColor = 'var(--cinza_claro)'
+        botaoEsquerdaInformatica.style.backgroundColor = 'white'
+        botaoDireitaInformatica.style.backgroundColor = 'var(--cinza_claro)'
     }
 }
 
-function rodarEsquerda() {
+function rodarEsquerdaInformatica() {
 
     //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
     //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
     if (contagemCardsDireita <= (quantidadeCardsInformatica + 1) && contagemCardsEsquerda > 1) {
         contagemCardsDireita--
-        botaoDireita.style.backgroundColor = 'white'
+        botaoDireitaInformatica.style.backgroundColor = 'white'
         const cardDireita = document.querySelector(`.card:nth-child(${contagemCardsDireita})`)
         cardDireita.classList.toggle('none')
 
@@ -175,11 +184,53 @@ function rodarEsquerda() {
         const cardEsquerda = document.querySelector(`.card:nth-child(${contagemCardsEsquerda})`)
         cardEsquerda.classList.toggle('none')
     } else {
-        botaoEsquerda.style.backgroundColor = 'var(--cinza_claro)'
+        botaoDireitaInformatica.style.backgroundColor = 'white'
+        botaoEsquerdaInformatica.style.backgroundColor = 'var(--cinza_claro)'
     }
 }
 
-botaoEsquerda.addEventListener('click', rodarEsquerda)
-botaoDireita.addEventListener('click', rodarDireita)
+function rodarDireitaEletronicos() {
+
+    //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
+    //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
+    if (contagemCardsDireita <= quantidadeCardsEletronico && contagemCardsEsquerda >= 1) {
+        botaoEsquerdaEletronicos.style.backgroundColor = 'white'
+        const cardDireita = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsDireita})`)
+        cardDireita.classList.toggle('none')
+        contagemCardsDireita++
+
+        const cardEsquerda = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsEsquerda})`)
+        cardEsquerda.classList.toggle('none')
+        contagemCardsEsquerda++
+    } else {
+        botaoEsquerdaEletronicos.style.backgroundColor = 'white'
+        botaoDireitaEletronicos.style.backgroundColor = 'var(--cinza_claro)'
+    }
+}
+
+function rodarEsquerdaEletronicos() {
+
+    //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
+    //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
+    if (contagemCardsDireita <= (quantidadeCardsEletronico + 1) && contagemCardsEsquerda > 1) {
+        contagemCardsDireita--
+        botaoDireitaEletronicos.style.backgroundColor = 'white'
+        const cardDireita = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsDireita})`)
+        cardDireita.classList.toggle('none')
+
+        contagemCardsEsquerda--
+        const cardEsquerda = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsEsquerda})`)
+        cardEsquerda.classList.toggle('none')
+    } else {
+        botaoDireitaEletronicos.style.backgroundColor = 'white'
+        botaoEsquerdaEletronicos.style.backgroundColor = 'var(--cinza_claro)'
+    }
+}
+
+
+botaoDireitaEletronicos.addEventListener('click', rodarDireitaEletronicos)
+botaoEsquerdaEletronicos.addEventListener('click', rodarEsquerdaEletronicos)
+botaoEsquerdaInformatica.addEventListener('click', rodarEsquerdaInformatica)
+botaoDireitaInformatica.addEventListener('click', rodarDireitaInformatica)
 produtos.forEach(gerarCardInformatica)
 produtos.forEach(gerarCardEletronicos)
