@@ -6,9 +6,11 @@ const botaoDireitaInformatica = document.getElementById('moverParaDireitaInforma
 const botaoEsquerdaInformatica = document.getElementById('moverParaEsquerdaInformatica')
 const botaoDireitaEletronicos = document.getElementById('moverParaDireitaEletronicos')
 const botaoEsquerdaEletronicos = document.getElementById('moverParaEsquerdaEletronicos')
+
+//Variaveis para que o aplicativo saiba em qual tamanho de tela ele está rodando
 const section = document.getElementById('containerInformatica')
-const largura = section.offsetWidth
-console.log(largura)
+const larguraSection = section.offsetWidth
+console.log(larguraSection)
 
 //VARIÁVEL PARA OCULTAR EXCENDENTE DE CARDS PARA A SECTION INFORMÁTICA
 var informaticaVisiveis = 0
@@ -55,6 +57,7 @@ function gerarCardInformatica(produto) {
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
 
+        //Código para a classificação de estrelas dos produtos
         let totalEstrelas = 0
         while (totalEstrelas < 5) {
             let avaliacaoEstrelas = document.createElement('img')
@@ -67,7 +70,8 @@ function gerarCardInformatica(produto) {
             totalEstrelas++
         }
 
-        if (largura <= 650) {
+        //If e Else para controle de visualização dos cards em tamanhos de tela diferentes
+        if (larguraSection <= 650) {
             if (informaticaVisiveis >= 1) {
                 card.classList.add('none')
             }
@@ -133,6 +137,7 @@ function gerarCardEletronicos(produto) {
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
 
+        //Código para a classificação de estrelas dos produtos
         let totalEstrelas = 0
         while (totalEstrelas < 5) {
             let avaliacaoEstrelas = document.createElement('img')
@@ -145,7 +150,8 @@ function gerarCardEletronicos(produto) {
             totalEstrelas++
         }
 
-        if (largura <= 650) {
+        //If e Else para controle de visualização dos cards em tamanhos de tela diferentes
+        if (larguraSection <= 650) {
             if (eletronicosVisiveis >= 1) {
                 card.classList.add('none')
             }
@@ -159,40 +165,40 @@ function gerarCardEletronicos(produto) {
     }
 }
 produtos.forEach(gerarCardEletronicos)
-
-if (eletronicosVisiveis <= 3) {
+console.log(eletronicosVisiveis)
+if (eletronicosVisiveis <= 4) {
     botaoDireitaEletronicos.style.display = 'none'
     botaoEsquerdaEletronicos.style.display = 'none'
 }
 
-//VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL
-var contagemCardsDireita
-var contagemCardsEsquerda
 
-if (largura <= 650) {
-    contagemCardsDireita = 2
-    contagemCardsEsquerda = 1
+//VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL e seus diferentes valores para cada tamanho de tela
+var contagemCardsDireitaInformatica
+var contagemCardsEsquerdaInformartica
+
+if (larguraSection <= 650) {
+    contagemCardsDireitaInformatica = 2
+    contagemCardsEsquerdaInformartica = 1
 
 } else {
-    contagemCardsDireita = 5
-    contagemCardsEsquerda = 1
+    contagemCardsDireitaInformatica = 5
+    contagemCardsEsquerdaInformartica = 1
 
 }
-
 
 function rodarDireitaInformatica() {
 
     //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
     //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
-    if (contagemCardsDireita <= quantidadeCardsInformatica && contagemCardsEsquerda >= 1) {
+    if (contagemCardsDireitaInformatica <= quantidadeCardsInformatica && contagemCardsEsquerdaInformartica >= 1) {
         botaoEsquerdaInformatica.style.backgroundColor = 'white'
-        const cardDireita = document.querySelector(`#containerInformatica .card:nth-child(${contagemCardsDireita})`)
+        const cardDireita = document.querySelector(`#containerInformatica .card:nth-child(${contagemCardsDireitaInformatica})`)
         cardDireita.classList.toggle('none')
-        contagemCardsDireita++
+        contagemCardsDireitaInformatica++
 
-        const cardEsquerda = document.querySelector(`#containerInformatica .card:nth-child(${contagemCardsEsquerda})`)
+        const cardEsquerda = document.querySelector(`#containerInformatica .card:nth-child(${contagemCardsEsquerdaInformartica})`)
         cardEsquerda.classList.toggle('none')
-        contagemCardsEsquerda++
+        contagemCardsEsquerdaInformartica++
     } else {
         botaoEsquerdaInformatica.style.backgroundColor = 'white'
         botaoDireitaInformatica.style.backgroundColor = 'var(--cinza_claro)'
@@ -203,14 +209,14 @@ function rodarEsquerdaInformatica() {
 
     //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
     //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
-    if (contagemCardsDireita <= (quantidadeCardsInformatica + 1) && contagemCardsEsquerda > 1) {
-        contagemCardsDireita--
+    if (contagemCardsDireitaInformatica <= (quantidadeCardsInformatica + 1) && contagemCardsEsquerdaInformartica > 1) {
+        contagemCardsDireitaInformatica--
         botaoDireitaInformatica.style.backgroundColor = 'white'
-        const cardDireita = document.querySelector(`.card:nth-child(${contagemCardsDireita})`)
+        const cardDireita = document.querySelector(`.card:nth-child(${contagemCardsDireitaInformatica})`)
         cardDireita.classList.toggle('none')
 
-        contagemCardsEsquerda--
-        const cardEsquerda = document.querySelector(`.card:nth-child(${contagemCardsEsquerda})`)
+        contagemCardsEsquerdaInformartica--
+        const cardEsquerda = document.querySelector(`.card:nth-child(${contagemCardsEsquerdaInformartica})`)
         cardEsquerda.classList.toggle('none')
     } else {
         botaoDireitaInformatica.style.backgroundColor = 'white'
@@ -218,19 +224,34 @@ function rodarEsquerdaInformatica() {
     }
 }
 
+
+//VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL e seus diferentes valores para cada tamanho de tela
+var contagemCardsDireitaEletronicos
+var contagemCardsEsquerdaEletronicos
+
+if (larguraSection <= 650) {
+    contagemCardsDireitaEletronicos = 2
+    contagemCardsEsquerdaEletronicos = 1
+
+} else {
+    contagemCardsDireitaEletronicos = 5
+    contagemCardsEsquerdaEletronicos = 1
+
+}
+
 function rodarDireitaEletronicos() {
 
     //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
     //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
-    if (contagemCardsDireita <= quantidadeCardsEletronico && contagemCardsEsquerda >= 1) {
+    if (contagemCardsDireitaEletronicos <= quantidadeCardsEletronico && contagemCardsEsquerdaEletronicos >= 1) {
         botaoEsquerdaEletronicos.style.backgroundColor = 'white'
-        const cardDireita = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsDireita})`)
+        const cardDireita = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsDireitaEletronicos})`)
         cardDireita.classList.toggle('none')
-        contagemCardsDireita++
+        contagemCardsDireitaEletronicos++
 
-        const cardEsquerda = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsEsquerda})`)
+        const cardEsquerda = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsEsquerdaEletronicos})`)
         cardEsquerda.classList.toggle('none')
-        contagemCardsEsquerda++
+        contagemCardsEsquerdaEletronicos++
     } else {
         botaoEsquerdaEletronicos.style.backgroundColor = 'white'
         botaoDireitaEletronicos.style.backgroundColor = 'var(--cinza_claro)'
@@ -241,14 +262,14 @@ function rodarEsquerdaEletronicos() {
 
     //O VALOR DENTRO DO CHILD É ALTERADO DE ACORDO COM OS CLIQUES DO USUÁRIO, CADA CARD SELECIONADO POR ELE É MARCADO OU DESMARCADO DA CLASSE DISPLAY:NONE
     //SE NÃO POSSUIR MAIS CARDS PARA SEREM SELECIONADOS PELO CHILD O BLOCO ELSE SERÁ EXECUTADO
-    if (contagemCardsDireita <= (quantidadeCardsEletronico + 1) && contagemCardsEsquerda > 1) {
-        contagemCardsDireita--
+    if (contagemCardsDireitaEletronicos <= (quantidadeCardsEletronico + 1) && contagemCardsEsquerdaEletronicos > 1) {
+        contagemCardsDireitaEletronicos--
         botaoDireitaEletronicos.style.backgroundColor = 'white'
-        const cardDireita = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsDireita})`)
+        const cardDireita = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsDireitaEletronicos})`)
         cardDireita.classList.toggle('none')
 
-        contagemCardsEsquerda--
-        const cardEsquerda = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsEsquerda})`)
+        contagemCardsEsquerdaEletronicos--
+        const cardEsquerda = document.querySelector(`#containerEletronicos .card:nth-child(${contagemCardsEsquerdaEletronicos})`)
         cardEsquerda.classList.toggle('none')
     } else {
         botaoDireitaEletronicos.style.backgroundColor = 'white'
@@ -256,14 +277,22 @@ function rodarEsquerdaEletronicos() {
     }
 }
 
+
+//Variaveis para saber quantos favoritos estão marcados
+var numeroFavoritos = 0
+const contagemFavoritos = document.getElementById('allFavoritos')
+
+//Função para animação de favoritar e contabilizar
 function animarIconeFavorito(imgFav) {
 
     imgFav.addEventListener('click', () => {
         if (imgFav.src == 'http://127.0.0.1:5501/img/favRed.png') {
             imgFav.src = './img/Favorite.png'
+            numeroFavoritos--
 
         } else if (imgFav.src == 'http://127.0.0.1:5501/img/Favorite.png') {
             imgFav.src = './img/favRed.png'
+            numeroFavoritos++
 
             imgFav.animate(
                 [
@@ -275,6 +304,13 @@ function animarIconeFavorito(imgFav) {
                     duration: 1500
                 }
             )
+        }
+
+        if (numeroFavoritos <= 0) {
+            contagemFavoritos.style.display = 'none'
+        } else {
+            contagemFavoritos.style.display = 'flex'
+            contagemFavoritos.innerHTML = numeroFavoritos
         }
     })
 }

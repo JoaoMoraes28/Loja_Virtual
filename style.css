@@ -10,8 +10,8 @@
     --cinza_escuro: #1D1D1D;
     --cinza_mediano: #616161;
     --cinza_claro: #BDBDBD;
+    --roxo: #52008E;
 }
-
 
 /* CONFIGURAÇÕES PARA O MENU NO HEADER */
 header {
@@ -58,7 +58,7 @@ li {
 }
 
 li:hover {
-    background-color: #d6282873;
+    background-color: #53008eb2;
     transition: 0.5s ease;
 }
 
@@ -89,6 +89,20 @@ li:hover {
     display: flex;
     gap: 50px;
     height: 40px;
+}
+
+#allFavoritos {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    border-radius: 100%;
+    right: 106px;
+    bottom: 89px;
+    width: 25px;
+    height: 25px;
+    background-color: #d62828b6;
 }
 
 
@@ -319,7 +333,7 @@ h2 {
 }
 
 .preco p {
-    min-width: 90px;
+    min-width: 100px;
 }
 
 .avaliacao {
@@ -435,6 +449,16 @@ h2 {
         margin-bottom: 225px;
     }
 
+    .fundoGradiente {
+        animation: none;
+        background-color: white;
+    }
+
+    .corFundo {
+        animation: none;
+        background-color: white;
+    }
+
     header {
         padding-top: 20px;
         height: 90px;
@@ -530,5 +554,9 @@ h2 {
 
     .preco {
         gap: 30px;
+    }
+
+    .preco p {
+        font-size: 0.9rem;
     }
 }
