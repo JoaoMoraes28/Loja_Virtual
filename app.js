@@ -6,6 +6,9 @@ const botaoDireitaInformatica = document.getElementById('moverParaDireitaInforma
 const botaoEsquerdaInformatica = document.getElementById('moverParaEsquerdaInformatica')
 const botaoDireitaEletronicos = document.getElementById('moverParaDireitaEletronicos')
 const botaoEsquerdaEletronicos = document.getElementById('moverParaEsquerdaEletronicos')
+const section = document.getElementById('containerInformatica')
+const largura = section.offsetWidth
+console.log(largura)
 
 //VARIÁVEL PARA OCULTAR EXCENDENTE DE CARDS PARA A SECTION INFORMÁTICA
 var informaticaVisiveis = 0
@@ -64,17 +67,25 @@ function gerarCardInformatica(produto) {
             totalEstrelas++
         }
 
-        if (informaticaVisiveis > 3) {
-            card.classList.add('none')
+        if (largura <= 650) {
+            if (informaticaVisiveis >= 1) {
+                card.classList.add('none')
+            }
+        } else {
+            if (informaticaVisiveis >= 4) {
+                card.classList.add('none')
+            }
         }
+
         informaticaVisiveis++
         quantidadeCardsInformatica++
     }
 }
+produtos.forEach(gerarCardInformatica)
 
-if (quantidadeCardsInformatica <= 4) {
-    botaoDireitaEletronicos.style.display = 'none'
-    botaoEsquerdaEletronicos.style.display = 'none'
+if (informaticaVisiveis <= 4) {
+    botaoDireitaInformatica.style.display = 'none'
+    botaoEsquerdaInformatica.style.display = 'none'
 }
 
 //VARIÁVEL PARA OCULTAR EXCEDENTE DE CARDS PARA A SECTION DE ELETRÔNICOS
@@ -134,22 +145,40 @@ function gerarCardEletronicos(produto) {
             totalEstrelas++
         }
 
-        if (eletronicosVisiveis > 3) {
-            card.classList.add('none')
+        if (largura <= 650) {
+            if (eletronicosVisiveis >= 1) {
+                card.classList.add('none')
+            }
+        } else {
+            if (eletronicosVisiveis >= 4) {
+                card.classList.add('none')
+            }
         }
         eletronicosVisiveis++
         quantidadeCardsEletronico++
     }
 }
+produtos.forEach(gerarCardEletronicos)
 
-if (quantidadeCardsEletronico <= 4) {
+if (eletronicosVisiveis <= 3) {
     botaoDireitaEletronicos.style.display = 'none'
     botaoEsquerdaEletronicos.style.display = 'none'
 }
 
 //VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL
-var contagemCardsDireita = 5
-var contagemCardsEsquerda = 1
+var contagemCardsDireita
+var contagemCardsEsquerda
+
+if (largura <= 650) {
+    contagemCardsDireita = 2
+    contagemCardsEsquerda = 1
+
+} else {
+    contagemCardsDireita = 5
+    contagemCardsEsquerda = 1
+
+}
+
 
 function rodarDireitaInformatica() {
 
@@ -227,10 +256,32 @@ function rodarEsquerdaEletronicos() {
     }
 }
 
+function animarIconeFavorito(imgFav) {
+
+    imgFav.addEventListener('click', () => {
+        if (imgFav.src == 'http://127.0.0.1:5501/img/favRed.png') {
+            imgFav.src = './img/Favorite.png'
+
+        } else if (imgFav.src == 'http://127.0.0.1:5501/img/Favorite.png') {
+            imgFav.src = './img/favRed.png'
+
+            imgFav.animate(
+                [
+                    { transform: 'scale(1.25)' },
+                    { transform: 'scale(1.00)' }
+
+                ],
+                {
+                    duration: 1500
+                }
+            )
+        }
+    })
+}
 
 botaoDireitaEletronicos.addEventListener('click', rodarDireitaEletronicos)
 botaoEsquerdaEletronicos.addEventListener('click', rodarEsquerdaEletronicos)
 botaoEsquerdaInformatica.addEventListener('click', rodarEsquerdaInformatica)
 botaoDireitaInformatica.addEventListener('click', rodarDireitaInformatica)
-produtos.forEach(gerarCardInformatica)
-produtos.forEach(gerarCardEletronicos)
+const imgFavorito = document.querySelectorAll('.cardImgs img:nth-child(2)')
+imgFavorito.forEach(animarIconeFavorito)

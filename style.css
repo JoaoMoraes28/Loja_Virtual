@@ -21,6 +21,8 @@ header {
     gap: 80px;
     height: 13vh;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     z-index: 99;
     color: white;
     background-color: #0C0705;
@@ -32,7 +34,8 @@ header {
 
 input {
     width: 60vw;
-    height: 30px;
+    height: 35px;
+    border-radius: 15px;
 }
 
 ul {
@@ -43,6 +46,20 @@ ul {
     gap: 90px;
     margin-top: 30px;
     width: 100%;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 135px;
+    height: 25px;
+}
+
+li:hover {
+    background-color: #d6282873;
+    transition: 0.5s ease;
 }
 
 .areaCliente {
@@ -112,6 +129,10 @@ section {
     height: 30vh;
 }
 
+.corFundo {
+    animation: corFundo 28s infinite, fade 28s;
+}
+
 .imgAnuncios {
     display: flex;
     justify-content: center;
@@ -140,7 +161,7 @@ h2 {
     padding-left: 10px;
     width: 100%;
     height: 50px;
-    color: white;
+    color: whitesmoke;
     background-color: var(--vermelho);
 }
 
@@ -364,6 +385,30 @@ h2 {
     }
 }
 
+@keyframes corFundo {
+
+    0%,
+    24% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    25%,
+    49% {
+        background-color: rgba(4, 90, 110, 1);
+    }
+
+    50%,
+    74% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    75%,
+    100% {
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
+
+
 
 /* ANIMAÇÃO PARA SUAVIZAÇÃO DE TROCA DE IMAGENS DO CARROSSEL DE FUNDO */
 @keyframes fade {
@@ -378,5 +423,112 @@ h2 {
 
     100% {
         opacity: 1;
+    }
+}
+
+/* Responsividades */
+
+@media (max-width: 650px) {
+    #bgCarrossel {
+        background-size: 100% 100%;
+        height: 60%;
+        margin-bottom: 225px;
+    }
+
+    header {
+        padding-top: 20px;
+        height: 90px;
+        gap: 5px;
+        pointer-events: none;
+    }
+
+    .logo img {
+        width: 70px;
+    }
+
+    .areaCliente {
+        width: 120px;
+        height: 100px;
+    }
+
+    .carrinho {
+        display: none;
+        gap: 5px;
+    }
+
+    .login p {
+        display: none;
+    }
+
+    input {
+        display: none;
+    }
+
+    .areaCliente {
+        margin-left: -15px;
+        margin-top: -15px;
+    }
+
+    .logo {
+        margin-left: -20px;
+    }
+
+    .logImg {
+        width: 55px;
+        height: 55px;
+    }
+
+    ul {
+        width: 350px;
+        margin-right: -50px;
+        margin-top: 40px;
+        gap: 10px;
+        font-size: 9px;
+        justify-content: flex-start;
+    }
+
+    li {
+        width: 60px;
+    }
+
+    section {
+        margin-top: -55px;
+        height: 350px;
+    }
+
+    .cards {
+        margin-bottom: 110px;
+        width: 100vw;
+        height: 55vh;
+    }
+
+    .anuncios {
+        margin-bottom: 180px;
+    }
+
+    .imgAnuncios {
+        width: 100%;
+    }
+
+    .imgAnuncios img {
+        height: 45%;
+    }
+
+    .card {
+        width: 205px;
+        height: 305px;
+        pointer-events: none;
+    }
+
+    .nome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .preco {
+        gap: 30px;
     }
 }
