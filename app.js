@@ -296,11 +296,11 @@ const contagemFavoritos = document.getElementById('allFavoritos')
 function animarIconeFavorito(imgFav) {
 
     imgFav.addEventListener('click', () => {
-        if (imgFav.src == 'http://127.0.0.1:5501/img/favRed.png') {
+        if (imgFav.src == 'http://127.0.0.1:5501/img/favRed.png' || imgFav.src == 'https://joaomoraes28.github.io/Loja_Virtual/img/favRed.png') {
             imgFav.src = './img/Favorite.png'
             numeroFavoritos--
 
-        } else if (imgFav.src == 'http://127.0.0.1:5501/img/Favorite.png') {
+        } else if (imgFav.src == 'http://127.0.0.1:5501/img/Favorite.png' || imgFav.src == 'https://joaomoraes28.github.io/Loja_Virtual/img/Favorite.png') {
             imgFav.src = './img/favRed.png'
             numeroFavoritos++
 
@@ -333,11 +333,11 @@ const contagemCarrinhos = document.getElementById('allCarrinhos')
 function animarIconeCart(imgCart) {
 
     imgCart.addEventListener('click', () => {
-        if (imgCart.src == 'http://127.0.0.1:5501/img/purpleCart.png') {
+        if (imgCart.src == 'http://127.0.0.1:5501/img/purpleCart.png' || imgCart.src == '	https://joaomoraes28.github.io/Loja_Virtual/img/purpleCart.png') {
             imgCart.src = './img/cartCard.png'
             numeroCarrinhos--
 
-        } else if (imgCart.src == 'http://127.0.0.1:5501/img/cartCard.png') {
+        } else if (imgCart.src == 'http://127.0.0.1:5501/img/cartCard.png' || imgCart.src == '	https://joaomoraes28.github.io/Loja_Virtual/img/cartCard.png') {
             imgCart.src = './img/purpleCart.png'
             numeroCarrinhos++
 
