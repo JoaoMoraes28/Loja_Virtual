@@ -165,11 +165,21 @@ function gerarCardEletronicos(produto) {
     }
 }
 produtos.forEach(gerarCardEletronicos)
-console.log(eletronicosVisiveis)
-if (eletronicosVisiveis <= 4) {
-    botaoDireitaEletronicos.style.display = 'none'
-    botaoEsquerdaEletronicos.style.display = 'none'
+
+if (larguraSection <= 650) {
+    if (eletronicosVisiveis <= 1) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
+} else {
+    if (eletronicosVisiveis <= 4) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
 }
+
 
 
 //VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL e seus diferentes valores para cada tamanho de tela
@@ -315,9 +325,52 @@ function animarIconeFavorito(imgFav) {
     })
 }
 
+//Variaveis para saber quantos carrinhos estão marcados
+var numeroCarrinhos = 0
+const contagemCarrinhos = document.getElementById('allCarrinhos')
+
+//Função para animação de adicionar ao carrinho e contabilizar
+function animarIconeCart(imgCart) {
+
+    imgCart.addEventListener('click', () => {
+        if (imgCart.src == 'http://127.0.0.1:5501/img/purpleCart.png') {
+            imgCart.src = './img/cartCard.png'
+            numeroCarrinhos--
+
+        } else if (imgCart.src == 'http://127.0.0.1:5501/img/cartCard.png') {
+            imgCart.src = './img/purpleCart.png'
+            numeroCarrinhos++
+
+            imgCart.animate(
+                [
+                    { transform: 'scale(1.25)' },
+                    { transform: 'scale(1.00)' }
+
+                ],
+                {
+                    duration: 1500
+                }
+            )
+        }
+
+        if (numeroCarrinhos == 0) {
+            contagemCarrinhos.style.display = 'none'
+
+        } else {
+            contagemCarrinhos.style.display = 'flex'
+            contagemCarrinhos.innerHTML = numeroCarrinhos
+        }
+    })
+
+}
+
 botaoDireitaEletronicos.addEventListener('click', rodarDireitaEletronicos)
 botaoEsquerdaEletronicos.addEventListener('click', rodarEsquerdaEletronicos)
 botaoEsquerdaInformatica.addEventListener('click', rodarEsquerdaInformatica)
 botaoDireitaInformatica.addEventListener('click', rodarDireitaInformatica)
 const imgFavorito = document.querySelectorAll('.cardImgs img:nth-child(2)')
 imgFavorito.forEach(animarIconeFavorito)
+const imgCarrinho = document.querySelectorAll('.cardImgs img:nth-child(1)')
+imgCarrinho.forEach(animarIconeCart)
+console.log(imgFavorito)
+console.log(imgCarrinho)
