@@ -75,6 +75,10 @@ function gerarCardInformatica(produto) {
             if (informaticaVisiveis >= 1) {
                 card.classList.add('none')
             }
+        } else if (larguraSection <= 922) {
+            if (informaticaVisiveis >= 2) {
+                card.classList.add('none')
+            }
         } else {
             if (informaticaVisiveis >= 4) {
                 card.classList.add('none')
@@ -155,6 +159,10 @@ function gerarCardEletronicos(produto) {
             if (eletronicosVisiveis >= 1) {
                 card.classList.add('none')
             }
+        } else if (larguraSection <= 922) {
+            if (eletronicosVisiveis >= 2) {
+                card.classList.add('none')
+            }
         } else {
             if (eletronicosVisiveis >= 4) {
                 card.classList.add('none')
@@ -168,6 +176,12 @@ produtos.forEach(gerarCardEletronicos)
 
 if (larguraSection <= 650) {
     if (eletronicosVisiveis <= 1) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
+} else if (larguraSection <= 922) {
+    if (eletronicosVisiveis <= 2) {
         botaoDireitaEletronicos.style.display = 'none'
         botaoEsquerdaEletronicos.style.display = 'none'
 
@@ -188,6 +202,10 @@ var contagemCardsEsquerdaInformartica
 
 if (larguraSection <= 650) {
     contagemCardsDireitaInformatica = 2
+    contagemCardsEsquerdaInformartica = 1
+
+} else if (larguraSection <= 922) {
+    contagemCardsDireitaInformatica = 3
     contagemCardsEsquerdaInformartica = 1
 
 } else {
@@ -243,6 +261,10 @@ if (larguraSection <= 650) {
     contagemCardsDireitaEletronicos = 2
     contagemCardsEsquerdaEletronicos = 1
 
+} else if (larguraSection <= 922) {
+    contagemCardsDireitaEletronicos = 3
+    contagemCardsEsquerdaEletronicos = 1
+
 } else {
     contagemCardsDireitaEletronicos = 5
     contagemCardsEsquerdaEletronicos = 1
@@ -296,11 +318,11 @@ const contagemFavoritos = document.getElementById('allFavoritos')
 function animarIconeFavorito(imgFav) {
 
     imgFav.addEventListener('click', () => {
-        if (imgFav.src == 'http://127.0.0.1:5501/img/favRed.png' || imgFav.src == 'https://joaomoraes28.github.io/Loja_Virtual/img/favRed.png') {
+        if (imgFav.src.includes('favRed.png')) {
             imgFav.src = './img/Favorite.png'
             numeroFavoritos--
 
-        } else if (imgFav.src == 'http://127.0.0.1:5501/img/Favorite.png' || imgFav.src == 'https://joaomoraes28.github.io/Loja_Virtual/img/Favorite.png') {
+        } else if (imgFav.src.includes('Favorite.png')) {
             imgFav.src = './img/favRed.png'
             numeroFavoritos++
 
@@ -372,5 +394,3 @@ const imgFavorito = document.querySelectorAll('.cardImgs img:nth-child(2)')
 imgFavorito.forEach(animarIconeFavorito)
 const imgCarrinho = document.querySelectorAll('.cardImgs img:nth-child(1)')
 imgCarrinho.forEach(animarIconeCart)
-console.log(imgFavorito)
-console.log(imgCarrinho)
