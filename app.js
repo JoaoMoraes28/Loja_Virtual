@@ -333,12 +333,12 @@ const contagemCarrinhos = document.getElementById('allCarrinhos')
 function animarIconeCart(imgCart) {
 
     imgCart.addEventListener('click', () => {
-        if (imgCart.src == 'http://127.0.0.1:5501/img/purpleCart.png' || imgCart.src == 'https://joaomoraes28.github.io/Loja_Virtual/img/purpleCart.png') {
+        if (imgCart.src.includes('purpleCart.png')) {
             imgCart.src = './img/cartCard.png'
             numeroCarrinhos--
 
-        } else if (imgCart.src == 'http://127.0.0.1:5501/img/cartCard.png' || imgCart.src == 'https://joaomoraes28.github.io/Loja_Virtual/img/cartCard.png') {
-            imgCart.src = 'https://joaomoraes28.github.io/Loja_Virtual/img/purpleCart.png'
+        } else if (imgCart.src.includes('cartCard.png')) {
+            imgCart.src = './img/purpleCart.png'
             numeroCarrinhos++
 
             imgCart.animate(
