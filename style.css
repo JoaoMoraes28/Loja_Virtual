@@ -693,7 +693,7 @@ h2 {
     }
 
     .eletronicos {
-        
+
         height: 670px;
     }
 
@@ -780,6 +780,181 @@ h2 {
     .imgAnuncios img {
         height: 60%;
     }
+}
+
+/* Notebooks */
+@media (min-width: 1025px) and (max-width: 1928px) {
+
+    /* Background e Header */
+    #bgCarrossel {
+        background-size: 90% 100%;
+        height: 85%;
+        margin-top: 290px;
+    }
+
+    header {
+        padding-top: 20px;
+        height: 180px;
+        gap: 90px;
+        pointer-events: none;
+    }
+
+    .logo img {
+        margin-top: 20px;
+        width: 130px;
+    }
+
+    input {
+        margin-top: 20px;
+        width: 400px;
+    }
+
+    ul {
+        margin-left: -40px;
+        width: 750px;
+        margin-top: 50px;
+        gap: 80px;
+        font-size: 1rem;
+        justify-content: flex-start;
+    }
+
+    li {
+        width: 100px;
+    }
+
+    .areaCliente {
+        flex-direction: row-reverse;
+        margin-left: -370px;
+        width: 430px;
+        height: 110px;
+    }
+
+    .carrinho img {
+        width: 55px;
+        height: 55px;
+    }
+
+    #allFavoritos {
+        font-size: 1.5rem;
+        right: 280px;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+    }
+
+    #allCarrinhos {
+        font-size: 1.5rem;
+        right: 170px;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .logImg {
+        margin-top: 10px;
+        width: 85px;
+        height: 85px;
+    }
+
+    .login p {
+        display: none;
+    }
 
 
+    /* Section e cards */
+    .informatica {
+        margin-top: 60px;
+        height: 670px;
+    }
+
+    .eletronicos {
+        margin-top: -145px;
+        padding-bottom: 100px;
+        height: 670px;
+    }
+
+    .cards {
+        margin-bottom: 80px;
+        width: 90vw;
+        height: 60vh;
+    }
+
+    .card {
+        margin-bottom: 10px;
+        width: 245px;
+        height: 370px;
+        pointer-events: none;
+    }
+
+    .card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .card:hover .nome {
+        display: flex;
+    }
+
+    .moverParaDireita {
+        margin-bottom: 60px;
+    }
+
+    .moverParaEsquerda {
+        margin-bottom: 60px;
+    }
+
+    .cardImgs {
+        display: flex;
+        gap: 30px;
+    }
+
+    .cardImgs img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cardImgs img {
+        pointer-events: all;
+    }
+
+    .nome {
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .descricao {
+        font-size: 1.2rem;
+    }
+
+    .preco {
+        margin-top: 0;
+        gap: 80px;
+    }
+
+    .preco p {
+        font-size: 1.3rem;
+        width: 140px;
+    }
+
+    .avaliacao img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .anuncios {
+        height: 30vh;
+    }
+
+    .imgAnuncios {
+        margin-bottom: 275px;
+        width: 90vw;
+    }
+
+    .imgAnuncios img {
+        height: 60%;
+    }
 }

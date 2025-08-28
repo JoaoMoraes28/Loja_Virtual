@@ -79,6 +79,10 @@ function gerarCardInformatica(produto) {
             if (informaticaVisiveis >= 2) {
                 card.classList.add('none')
             }
+        } else if (larguraSection <= 1152) {
+            if (informaticaVisiveis >= 3) {
+                card.classList.add('none')
+            }
         } else {
             if (informaticaVisiveis >= 4) {
                 card.classList.add('none')
@@ -163,8 +167,12 @@ function gerarCardEletronicos(produto) {
             if (eletronicosVisiveis >= 2) {
                 card.classList.add('none')
             }
+        } else if (larguraSection <= 1152) {
+            if (eletronicosVisiveis >= 3) {
+                card.classList.add('none')
+            }
         } else {
-            if (eletronicosVisiveis >= 4) {
+            if (informaticaVisiveis >= 4) {
                 card.classList.add('none')
             }
         }
@@ -182,6 +190,12 @@ if (larguraSection <= 650) {
     }
 } else if (larguraSection <= 922) {
     if (eletronicosVisiveis <= 2) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
+} else if (larguraSection <= 1152) {
+    if (eletronicosVisiveis <= 3) {
         botaoDireitaEletronicos.style.display = 'none'
         botaoEsquerdaEletronicos.style.display = 'none'
 
@@ -206,6 +220,10 @@ if (larguraSection <= 650) {
 
 } else if (larguraSection <= 922) {
     contagemCardsDireitaInformatica = 3
+    contagemCardsEsquerdaInformartica = 1
+
+} else if (larguraSection <= 1152) {
+    contagemCardsDireitaInformatica = 4
     contagemCardsEsquerdaInformartica = 1
 
 } else {
@@ -263,6 +281,10 @@ if (larguraSection <= 650) {
 
 } else if (larguraSection <= 922) {
     contagemCardsDireitaEletronicos = 3
+    contagemCardsEsquerdaEletronicos = 1
+
+} else if (larguraSection <= 1152) {
+    contagemCardsDireitaEletronicos = 4
     contagemCardsEsquerdaEletronicos = 1
 
 } else {
