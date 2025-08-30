@@ -38,6 +38,10 @@ input {
     border-radius: 15px;
 }
 
+.busca {
+    display: none;
+}
+
 ul {
     list-style: none;
     display: flex;
@@ -273,6 +277,173 @@ h2 {
 }
 
 
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: whitesmoke;
+    padding: 20px;
+    background-color: #0B0704;
+    width: 100%;
+    height: 500px;
+}
+
+footer button {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+    gap: 10px;
+    background-color: var(--roxo);
+    font-size: 0.8rem;
+    border-radius: 5px;
+    width: 160px;
+    height: 40px;
+}
+
+.containerFooter {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 40px;
+    width: 100%;
+    height: 50%;
+}
+
+.textoFooter {
+    width: 100%;
+    display: flex;
+}
+
+footer span {
+    font-weight: 600;
+}
+
+.atendimento {
+    display: grid;
+    width: 100%;
+}
+
+.atendimento p {
+    margin-bottom: 20px;
+    width: 340px;
+}
+
+.atendimento button:hover {
+    background-color: #310053;
+}
+
+.lojaFisica {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.institucional {
+    width: 90%;
+}
+
+.linkInstitucional {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: 33% 33% 30%;
+    font-size: 0.8rem;
+    gap: 25px;
+}
+
+a {
+    all: unset;
+}
+
+a:hover {
+    color: var(--roxo);
+}
+
+.sociais {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin-top: 90px;
+}
+
+.iconSociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.instagram {
+    width: 25px;
+    height: 25px;
+}
+
+.facebook {
+    width: 15px;
+    height: 20px;
+}
+
+.youTube {
+    width: 30px;
+    height: 20px;
+}
+
+.twitter {
+    width: 20px;
+    height: 20px;
+}
+
+.iconSociais div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #0B0704;
+    width: 40px;
+    height: 40px;
+    transition: 0.3s ease;
+}
+
+.iconSociais div:hover {
+    background-color: #53008ea4;
+}
+
+.sociais button {
+    border-style: solid;
+    border-color: var(--roxo);
+    background-color: #0B0704;
+}
+
+.sociais button:hover {
+    border-color: var(--vermelho);
+    color: var(--vermelho);
+}
+
+.creditos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: #0B0704;
+    border-top-color: var(--vermelho);
+    width: 100%;
+    gap: 20px;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+.creditos img {
+    width: 60px;
+    height: 60px;
+}
+
+
 /* CONFIGURAÇÕES PARA O CONTEÚDO DOS CARDS QUE SERÃO CRIADOS PELO JS */
 .nome {
     display: flex;
@@ -319,6 +490,7 @@ h2 {
     justify-content: center;
     width: 100%;
     min-height: 80px;
+    max-height: 20%;
     font-family: 'Roboto', sans-serif;
     font-size: 0.9rem;
     color: var(--cinza_mediano);
@@ -478,6 +650,7 @@ h2 {
         padding-top: 20px;
         height: 90px;
         gap: 5px;
+        max-width: 100%;
         pointer-events: none;
     }
 
@@ -493,10 +666,16 @@ h2 {
         display: none;
     }
 
+    .busca {
+        margin-left: 20px;
+        display: flex;
+        width: 20px;
+    }
+
     ul {
         width: 350px;
         margin-right: -45px;
-        margin-top: 40px;
+        margin-top: 20px;
         gap: 10px;
         font-size: 9px;
         justify-content: flex-start;
@@ -605,10 +784,226 @@ h2 {
         height: 55%;
     }
 
+    /* Footer */
+    footer {
+        pointer-events: none;
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+
+    .containerFooter {
+        grid-template-columns: none;
+    }
+
+    .atendimento {
+        height: 15vh;
+        width: 45%;
+    }
+
+    .atendimento p {
+        display: none;
+    }
+
+    .atendimento button {
+        font-size: 0.6rem;
+        width: 150px;
+    }
+
+    .lojaFisica {
+        width: 55%;
+        height: 80%;
+    }
+
+    .institucional {
+        display: none;
+    }
+
+    .sociais {
+        margin-top: -40px;
+    }
+
+    .sociais span {
+        display: none;
+    }
+
+    .iconSociais {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .instagram {
+        width: 20px;
+        height: 20px;
+    }
+
+    .facebook {
+        width: 15px;
+        height: 20px;
+    }
+
+    .youTube {
+        width: 30px;
+        height: 20px;
+    }
+
+    .twitter {
+        width: 20px;
+        height: 20px;
+    }
+
+    .iconSociais button {
+        width: 140px;
+    }
+
+    .creditos {
+        margin-top: 50px;
+    }
+}
+
+@media (min-width: 651px) and (max-width: 768px) {
+    /* Bckground e Header */
+    #bgCarrossel {
+        background-size: 100% 100%;
+        margin-top: 110px;
+    }
+
+    input {
+        display: none;
+    }
+
+    .busca {
+        display: flex;
+    }
+
+    ul {
+        width: 650px;
+        gap: 30px;
+        margin-top: 50px;
+        margin-left: -60px;
+        font-size: 0.8rem;
+    }
+
+    li {
+        width: 100px;
+    }
+
+    .areaCliente{
+        margin-left: -380px;
+        flex-direction: row-reverse;
+    }
+
+    .areaCliente p {
+        display: none;
+    }
+
+    .areaCliente img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .carrinho img {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Cards e Sections */
+    section {
+        margin-top: -20px;
+    }
+    
+    .cards {
+        width: 100%;
+    }
+
+    .card {
+        width: 250px;
+        height: 375px;
+    }
+
+    .imgAnuncios {
+        width: 100%;
+    }
+
+    /* Footer */
+    footer {
+        height: 400px;
+        pointer-events: none;
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+
+    .containerFooter {
+        grid-template-columns: none;
+    }
+
+    .atendimento {
+        height: 15vh;
+        width: 45%;
+    }
+
+    .atendimento p {
+        display: none;
+    }
+
+    .atendimento button {
+        font-size: 0.6rem;
+        width: 150px;
+    }
+
+    .lojaFisica {
+        width: 55%;
+        height: 80%;
+    }
+
+    .institucional {
+        display: none;
+    }
+
+    .sociais {
+        margin-top: -10px;
+    }
+
+    .sociais span {
+        display: none;
+    }
+
+    .iconSociais {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .instagram {
+        width: 20px;
+        height: 20px;
+    }
+
+    .facebook {
+        width: 15px;
+        height: 20px;
+    }
+
+    .youTube {
+        width: 30px;
+        height: 20px;
+    }
+
+    .twitter {
+        width: 20px;
+        height: 20px;
+    }
+
+    .iconSociais button {
+        width: 140px;
+    }
+
+    .creditos {
+        margin-top: 90px;
+    }
+
 }
 
 /* Tablets */
-@media (min-width: 651px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 
     /* Background e Header */
     #bgCarrossel {
@@ -688,12 +1083,13 @@ h2 {
 
     /* Section e cards */
     .informatica {
-        margin-top: -35px;
+        margin-top: -55px;
+        padding-top: 100px;
         height: 670px;
     }
 
     .eletronicos {
-
+        margin-top: -35px;
         height: 670px;
     }
 
@@ -780,119 +1176,106 @@ h2 {
     .imgAnuncios img {
         height: 60%;
     }
+
+    /* Footer */
+    footer {
+        pointer-events: none;
+    }
 }
 
 /* Notebooks */
-@media (min-width: 1025px) and (max-width: 1928px) {
+@media (min-width: 1025px) and (max-width: 1280px) {
 
     /* Background e Header */
     #bgCarrossel {
         background-size: 90% 100%;
-        height: 85%;
-        margin-top: 290px;
+        height: 90%;
+        margin-top: 260px;
     }
 
     header {
-        padding-top: 20px;
-        height: 180px;
-        gap: 90px;
-        pointer-events: none;
+        height: 150px;
+        gap: 130px;
     }
 
     .logo img {
-        margin-top: 20px;
         width: 130px;
     }
 
     input {
+        margin-left: -40px;
         margin-top: 20px;
-        width: 400px;
+        width: 500px;
     }
 
     ul {
-        margin-left: -40px;
-        width: 750px;
-        margin-top: 50px;
-        gap: 80px;
-        font-size: 1rem;
+        margin-left: -80px;
+        width: 1000px;
+        margin-top: 40px;
+        gap: 60px;
+        font-size: 1.1rem;
         justify-content: flex-start;
     }
 
     li {
-        width: 100px;
+        width: 150px;
     }
 
     .areaCliente {
-        flex-direction: row-reverse;
-        margin-left: -370px;
+        margin-left: -470px;
         width: 430px;
         height: 110px;
     }
 
     .carrinho img {
-        width: 55px;
-        height: 55px;
+        width: 45px;
+        height: 45px;
     }
 
     #allFavoritos {
         font-size: 1.5rem;
-        right: 280px;
+        right: 155px;
         top: 20px;
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 
     #allCarrinhos {
         font-size: 1.5rem;
-        right: 170px;
+        right: 55px;
         top: 20px;
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 
     .logImg {
         margin-top: 10px;
-        width: 85px;
-        height: 85px;
+        width: 65px;
+        height: 65px;
     }
-
-    .login p {
-        display: none;
-    }
-
 
     /* Section e cards */
     .informatica {
         margin-top: 60px;
-        height: 670px;
+        height: 770px;
     }
 
     .eletronicos {
         margin-top: -145px;
         padding-bottom: 100px;
-        height: 670px;
+        height: 770px;
     }
 
     .cards {
         margin-bottom: 80px;
         width: 90vw;
-        height: 60vh;
+        height: 75vh;
     }
 
     .card {
         margin-bottom: 10px;
-        width: 245px;
-        height: 370px;
-        pointer-events: none;
-    }
-
-    .card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-    .card:hover .nome {
-        display: flex;
+        width: 275px;
+        height: 400px;
     }
 
     .moverParaDireita {
@@ -903,22 +1286,12 @@ h2 {
         margin-bottom: 60px;
     }
 
-    .cardImgs {
-        display: flex;
-        gap: 30px;
-    }
-
     .cardImgs img {
         width: 30px;
         height: 30px;
     }
 
-    .cardImgs img {
-        pointer-events: all;
-    }
-
     .nome {
-        background-color: red;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -927,17 +1300,17 @@ h2 {
     }
 
     .descricao {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .preco {
-        margin-top: 0;
-        gap: 80px;
+        margin-top: 20px;
+        gap: 10px;
     }
 
     .preco p {
-        font-size: 1.3rem;
-        width: 140px;
+        font-size: 1.1rem;
+        width: 180px;
     }
 
     .avaliacao img {
@@ -957,4 +1330,8 @@ h2 {
     .imgAnuncios img {
         height: 60%;
     }
+}
+
+@media (min-width: 1281px) and (max-width: 1536px) {
+   
 }

@@ -172,7 +172,7 @@ function gerarCardEletronicos(produto) {
                 card.classList.add('none')
             }
         } else {
-            if (informaticaVisiveis >= 4) {
+            if (eletronicosVisiveis >= 4) {
                 card.classList.add('none')
             }
         }
