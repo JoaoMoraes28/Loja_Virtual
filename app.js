@@ -56,6 +56,7 @@ function gerarCardInformatica(produto) {
         pPreco.innerHTML = `R$ ${produto.preco}`
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
+        cart.id = produto.id
 
         //Código para a classificação de estrelas dos produtos
         let totalEstrelas = 0
@@ -144,6 +145,7 @@ function gerarCardEletronicos(produto) {
         pPreco.innerHTML = `R$ ${produto.preco}`
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
+        cart.id = produto.id
 
         //Código para a classificação de estrelas dos produtos
         let totalEstrelas = 0
@@ -358,6 +360,13 @@ function animarIconeFavorito(imgFav) {
                     duration: 1500
                 }
             )
+
+            const alert = document.getElementById('alert')
+            alert.style.marginTop = '100px'
+            alert.innerHTML = 'Produto adicionado com sucesso aos favoritos'
+            setTimeout(() => {
+                alert.style.marginTop = 0
+            }, 5000)
         }
 
         if (numeroFavoritos <= 0) {
@@ -369,9 +378,10 @@ function animarIconeFavorito(imgFav) {
     })
 }
 
-//Variaveis para saber quantos carrinhos estão marcados
+//Variaveis para saber quantos carrinhos estão marcados e seus dados
 var numeroCarrinhos = 0
 const contagemCarrinhos = document.getElementById('allCarrinhos')
+var allIdProdutos = []
 
 //Função para animação de adicionar ao carrinho e contabilizar
 function animarIconeCart(imgCart) {
@@ -395,6 +405,22 @@ function animarIconeCart(imgCart) {
                     duration: 1500
                 }
             )
+
+            const alert = document.getElementById('alert')
+            alert.style.marginTop = '100px'
+            alert.innerHTML = 'Produto adicionado com sucesso ao carrinho'
+            setTimeout(() => {
+                alert.style.marginTop = 0
+            }, 5000)
+
+            let idProduto = event.target.id
+            for (let i = 0; i < produtos.length; i++) {
+                if (idProduto == produtos[i].id) {
+                    allIdProdutos.push(produtos[i].id)
+                }
+
+            }
+
         }
 
         if (numeroCarrinhos == 0) {

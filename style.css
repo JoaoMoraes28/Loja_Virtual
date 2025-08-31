@@ -33,9 +33,13 @@ header {
 }
 
 input {
+    all: unset;
+    padding-left: 10px;
     width: 60vw;
     height: 35px;
     border-radius: 15px;
+    background-color: white;
+    color: var(--preto);
 }
 
 .busca {
@@ -86,7 +90,8 @@ li:hover {
 }
 
 .login p {
-    margin-top: 30px;
+    margin-top: 10px;
+    width: 120px;
 }
 
 .carrinho {
@@ -102,7 +107,7 @@ li:hover {
     align-items: center;
     font-weight: 400;
     border-radius: 100%;
-    right: 106px;
+    right: 146px;
     bottom: 89px;
     width: 25px;
     height: 25px;
@@ -116,11 +121,33 @@ li:hover {
     align-items: center;
     font-weight: 400;
     border-radius: 100%;
-    right: 15px;
+    right: 55px;
     bottom: 89px;
     width: 25px;
     height: 25px;
     background-color: #53008ea2;
+}
+
+.contianerAlert {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: -100px;
+    right: 0px;
+    width: 100%;
+    height: 100px;
+}
+
+#alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 0px;
+    width: 400px;
+    height: 60px;
+    background-color: var(--roxo);
+    transition: 0.7s ease;
 }
 
 
@@ -651,7 +678,6 @@ a:hover {
         height: 90px;
         gap: 5px;
         max-width: 100%;
-        pointer-events: none;
     }
 
     .logo {
@@ -679,6 +705,7 @@ a:hover {
         gap: 10px;
         font-size: 9px;
         justify-content: flex-start;
+        pointer-events: none;
     }
 
     li {
@@ -861,6 +888,7 @@ a:hover {
 }
 
 @media (min-width: 651px) and (max-width: 768px) {
+
     /* Bckground e Header */
     #bgCarrossel {
         background-size: 100% 100%;
@@ -881,15 +909,17 @@ a:hover {
         margin-top: 50px;
         margin-left: -60px;
         font-size: 0.8rem;
+        pointer-events: none;
     }
 
     li {
         width: 100px;
     }
 
-    .areaCliente{
+    .areaCliente {
         margin-left: -380px;
         flex-direction: row-reverse;
+        gap: 40px;
     }
 
     .areaCliente p {
@@ -906,11 +936,21 @@ a:hover {
         height: 35px;
     }
 
+    #allFavoritos {
+        right: 240px;
+        top: 15px;
+    }
+
+    #allCarrinhos {
+        right: 155px;
+        top: 15px;
+    }
+
     /* Cards e Sections */
     section {
         margin-top: -20px;
     }
-    
+
     .cards {
         width: 100%;
     }
@@ -918,6 +958,20 @@ a:hover {
     .card {
         width: 250px;
         height: 375px;
+        
+    }
+
+    .card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .card:hover .nome {
+        display: flex;
+    }
+
+    .cardImgs {
+        display: flex;
     }
 
     .imgAnuncios {
@@ -1234,7 +1288,7 @@ a:hover {
 
     #allFavoritos {
         font-size: 1.5rem;
-        right: 155px;
+        right: 105px;
         top: 20px;
         width: 30px;
         height: 30px;
@@ -1242,7 +1296,7 @@ a:hover {
 
     #allCarrinhos {
         font-size: 1.5rem;
-        right: 55px;
+        right: 5px;
         top: 20px;
         width: 30px;
         height: 30px;
@@ -1332,6 +1386,3 @@ a:hover {
     }
 }
 
-@media (min-width: 1281px) and (max-width: 1536px) {
-   
-}
