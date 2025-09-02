@@ -381,6 +381,7 @@ function animarIconeFavorito(imgFav) {
 //Variaveis para saber quantos carrinhos estão marcados e seus dados
 var numeroCarrinhos = 0
 const contagemCarrinhos = document.getElementById('allCarrinhos')
+const abaCarrinho = document.getElementById('abaCarrinho')
 var allIdProdutos = []
 
 //Função para animação de adicionar ao carrinho e contabilizar
@@ -413,10 +414,37 @@ function animarIconeCart(imgCart) {
                 alert.style.marginTop = 0
             }, 5000)
 
-            let idProduto = event.target.id
+            let idProduto = Number(event.target.id)
+            const divCarrinho = document.createElement('div')
+            const imgCarrinho = document.createElement('img')
+            const divContainer = document.createElement('div')
+            const pCarrinho = document.createElement('p')
+            const spanCarrinho = document.createElement('span')
+
+            divCarrinho.classList.add('cardCarrinho')
+            imgCarrinho.classList.add('imgCarrinho')
+            divContainer.classList.add('containerCarrinho')
+            pCarrinho.classList.add('nomeCarrinho')
+            spanCarrinho.classList.add('precoCarrinho')
+
+            abaCarrinho.appendChild(divCarrinho)
+            divCarrinho.append(imgCarrinho, divContainer)
+            divContainer.append(pCarrinho, spanCarrinho)
+
+            if (numeroCarrinhos == 0) {
+                
+            } else {
+                
+            }
+
+            const pVazio = document.getElementById('carrinhoVazio')
+            pVazio.style.display = 'none'
+
             for (let i = 0; i < produtos.length; i++) {
                 if (idProduto == produtos[i].id) {
-                    allIdProdutos.push(produtos[i].id)
+                    imgCarrinho.src = produtos[i].imagem
+                    pCarrinho.innerHTML = produtos[i].nome
+                    spanCarrinho.innerHTML = produtos[i].preco
                 }
 
             }
