@@ -390,6 +390,8 @@ var allIdProdutosCarrinho = []
 function animarIconeCart(imgCart) {
 
     imgCart.addEventListener('click', () => {
+
+        let somaTotal = 0
         if (imgCart.src.includes('purpleCart.png')) {
             imgCart.src = './img/cartCard.png'
             numeroCarrinhos--
@@ -398,9 +400,17 @@ function animarIconeCart(imgCart) {
                 pVazio.style.display = 'flex'
             }
 
+            //Identificar e remover o card da aba do carrinho
             let idProduto = Number(event.target.id)
             const cardRemovido = document.getElementById(`card${idProduto}`)
             cardRemovido.parentNode.removeChild(cardRemovido)
+
+            for (let i = 0; i < allIdProdutosCarrinho.length; i++) {
+                if (allIdProdutosCarrinho[i] == event.target.id) {
+                    allIdProdutosCarrinho.splice(i, 1)
+                }
+
+            }
 
         } else if (imgCart.src.includes('cartCard.png')) {
             imgCart.src = './img/purpleCart.png'
@@ -417,6 +427,7 @@ function animarIconeCart(imgCart) {
                 }
             )
 
+            //Mensagem de produto adicionado ao carrinho com sucesso
             const alert = document.getElementById('alert')
             alert.style.marginTop = '100px'
             alert.innerHTML = 'Produto adicionado com sucesso ao carrinho'
@@ -424,6 +435,7 @@ function animarIconeCart(imgCart) {
                 alert.style.marginTop = 0
             }, 5000)
 
+            //Criar o card do produto que foi adicionado ao carrinho
             let idProduto = Number(event.target.id)
             const divCarrinho = document.createElement('div')
             const imgCarrinho = document.createElement('img')
@@ -443,6 +455,7 @@ function animarIconeCart(imgCart) {
 
             pVazio.style.display = 'none'
 
+            //Atribuindo os dados ao card
             for (let i = 0; i < produtos.length; i++) {
                 if (idProduto == produtos[i].id) {
                     allIdProdutosCarrinho.push(idProduto)
@@ -453,8 +466,21 @@ function animarIconeCart(imgCart) {
                 }
 
             }
-
         }
+
+        //Código para a soma dos preços dos produtos no carrinho
+        allIdProdutosCarrinho.forEach((idProduto) => {
+            for (let i = 0; i < produtos.length; i++) {
+                if (idProduto == produtos[i].id) {
+                    let precoProduto = produtos[i].preco
+                    somaTotal += precoProduto
+                }
+
+            }
+        })
+
+
+        pValorTotalCarrinho.innerHTML = `R$ ${somaTotal.toFixed(2)}`
 
         if (numeroCarrinhos == 0) {
             contagemCarrinhos.style.display = 'none'
