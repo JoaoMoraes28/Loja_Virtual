@@ -382,7 +382,9 @@ function animarIconeFavorito(imgFav) {
 var numeroCarrinhos = 0
 const contagemCarrinhos = document.getElementById('allCarrinhos')
 const abaCarrinho = document.getElementById('abaCarrinho')
-var allIdProdutos = []
+const pVazio = document.getElementById('carrinhoVazio')
+const pValorTotalCarrinho = document.getElementById('valorTotalProdutos')
+var allIdProdutosCarrinho = []
 
 //Função para animação de adicionar ao carrinho e contabilizar
 function animarIconeCart(imgCart) {
@@ -391,6 +393,14 @@ function animarIconeCart(imgCart) {
         if (imgCart.src.includes('purpleCart.png')) {
             imgCart.src = './img/cartCard.png'
             numeroCarrinhos--
+
+            if (numeroCarrinhos == 0) {
+                pVazio.style.display = 'flex'
+            }
+
+            let idProduto = Number(event.target.id)
+            const cardRemovido = document.getElementById(`card${idProduto}`)
+            cardRemovido.parentNode.removeChild(cardRemovido)
 
         } else if (imgCart.src.includes('cartCard.png')) {
             imgCart.src = './img/purpleCart.png'
@@ -431,20 +441,15 @@ function animarIconeCart(imgCart) {
             divCarrinho.append(imgCarrinho, divContainer)
             divContainer.append(pCarrinho, spanCarrinho)
 
-            if (numeroCarrinhos == 0) {
-                
-            } else {
-                
-            }
-
-            const pVazio = document.getElementById('carrinhoVazio')
             pVazio.style.display = 'none'
 
             for (let i = 0; i < produtos.length; i++) {
                 if (idProduto == produtos[i].id) {
+                    allIdProdutosCarrinho.push(idProduto)
+                    divCarrinho.id = `card${idProduto}`
                     imgCarrinho.src = produtos[i].imagem
                     pCarrinho.innerHTML = produtos[i].nome
-                    spanCarrinho.innerHTML = produtos[i].preco
+                    spanCarrinho.innerHTML = `R$ ${produtos[i].preco}`
                 }
 
             }

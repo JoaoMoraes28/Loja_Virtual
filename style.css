@@ -114,31 +114,79 @@ li:hover {
     background-color: #d62828b6;
 }
 
-#abaCarrinho {
+.containerProdutosCarrinho {
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: -380px;
-    top: 35px;
-    width: 300px;
-    height: 500px;
-    border-radius: 10px;
-    padding: 10px;
-    gap: 5px;
     font-family: 'Montserrat', sans-serif;
-    overflow: auto;
+    right: 80px;
+    top: 35px;
+    width: 320px;
+    height: 550px;
+    border-radius: 10px;
     background-color: var(--preto);
     border-style: solid;
-    border-color: var(--vermelho);
+    border-color: var(--cinza_mediano);
     transition: 0.4s ease;
 }
 
-.compras:hover+#abaCarrinho {
+.compras:hover+.containerProdutosCarrinho {
     right: 80px;
 }
 
-#abaCarrinho:hover {
+.containerProdutosCarrinho:hover {
     right: 80px;
+}
+
+#abaCarrinho {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    gap: 5px;
+    overflow: auto;
+}
+
+.containerInformacoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--cinza_mediano);
+    width: 100%;
+    height: 10%;
+    padding: 5px;
+}
+
+.pagamento {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    background-color: #53008e94;
+}
+
+.pagamento:hover {
+    background-color: var(--roxo);
+}
+
+.containerInformacoes div {
+    width: 55%;
+    display: grid;
+    gap: 5px;
+}
+
+.containerInformacoes span {
+    font-size: 0.9rem;
+}
+
+#valorTotalProdutos {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
 }
 
 .cardCarrinho {
@@ -151,7 +199,7 @@ li:hover {
     border-radius: 10px;
     background-color: whitesmoke;
     border-style: solid;
-    border-color: #53008e9c;
+    border-color: var(--cinza_escuro);
 }
 
 .imgCarrinho {
