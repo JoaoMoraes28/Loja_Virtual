@@ -23,7 +23,7 @@ header {
     width: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    z-index: 10;
+    z-index: 99;
     color: white;
     background-color: #0C0705;
 }
@@ -525,6 +525,7 @@ h2 {
     margin-top: 60px;
     margin-right: -70px;
     transition: 0.5s ease;
+    z-index: 99;
 }
 
 .moverParaEsquerda:hover {
@@ -1412,7 +1413,7 @@ a:hover {
 
     .moverParaEsquerda {
         margin-bottom: 190px;
-        z-index: 99;
+        z-index: 10;
     }
 
     .cardImgs {
@@ -1471,7 +1472,12 @@ a:hover {
 
     /* Footer */
     footer {
+        height: 600px;
         pointer-events: none;
+    }
+
+    .sociais {
+        margin-top: 0px;
     }
 }
 

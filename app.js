@@ -399,7 +399,7 @@ function animarIconeFavorito(imgFav) {
 
             //Identificar e remover o card da aba dos favoritos
             let idProduto = Number(event.target.id)
-            const cardRemovido = document.getElementById(`card${idProduto}`)
+            const cardRemovido = document.getElementById(`cardFavorito${idProduto}`)
             cardRemovido.parentNode.removeChild(cardRemovido)
 
             for (let i = 0; i < allIdProdutosFavoritos.length; i++) {
@@ -457,7 +457,7 @@ function animarIconeFavorito(imgFav) {
             for (let i = 0; i < produtos.length; i++) {
                 if (idProduto == produtos[i].id) {
                     allIdProdutosFavoritos.push(idProduto)
-                    divFavoritos.id = `card${idProduto}`
+                    divFavoritos.id = `cardFavorito${idProduto}`
                     imgFavoritos.src = produtos[i].imagem
                     pFavoritos.innerHTML = produtos[i].nome
                     spanFavoritos.innerHTML = `R$ ${produtos[i].preco}`
@@ -499,7 +499,7 @@ function animarIconeCart(imgCart) {
 
             //Identificar e remover o card da aba do carrinho
             let idProduto = Number(event.target.id)
-            const cardRemovido = document.getElementById(`card${idProduto}`)
+            const cardRemovido = document.getElementById(`cardCarrinho${idProduto}`)
             cardRemovido.parentNode.removeChild(cardRemovido)
 
             for (let i = 0; i < allIdProdutosCarrinho.length; i++) {
@@ -556,7 +556,7 @@ function animarIconeCart(imgCart) {
             for (let i = 0; i < produtos.length; i++) {
                 if (idProduto == produtos[i].id) {
                     allIdProdutosCarrinho.push(idProduto)
-                    divCarrinho.id = `card${idProduto}`
+                    divCarrinho.id = `cardCarrinho${idProduto}`
                     imgCarrinho.src = produtos[i].imagem
                     pCarrinho.innerHTML = produtos[i].nome
                     spanCarrinho.innerHTML = `R$ ${produtos[i].preco}`
