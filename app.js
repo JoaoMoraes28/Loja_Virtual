@@ -10,7 +10,6 @@ const botaoEsquerdaEletronicos = document.getElementById('moverParaEsquerdaEletr
 //Variaveis para que o aplicativo saiba em qual tamanho de tela ele está rodando
 const section = document.getElementById('containerInformatica')
 const larguraSection = section.offsetWidth
-console.log(larguraSection)
 
 //VARIÁVEL PARA OCULTAR EXCENDENTE DE CARDS PARA A SECTION INFORMÁTICA
 var informaticaVisiveis = 0
@@ -53,10 +52,27 @@ function gerarCardInformatica(produto) {
         pNome.innerHTML = produto.nome
         imgProduto.src = produto.imagem
         span.innerHTML = produto.descricao
-        pPreco.innerHTML = `R$ ${produto.preco}`
+        let precoString = String(produto.preco)
+        precoString = precoString.replace('.', ',')
+
+        //Configurando os dados do preço para serem exibidos no formato correto
+        let arrayPreco = precoString.split(',')
+        let tamanhoPreco = arrayPreco[0].length
+        let arrayPrecoChar = arrayPreco[0].split("")
+
+        if (tamanhoPreco == 4) {
+            precoString = `${arrayPrecoChar[0]}.${arrayPrecoChar[1]}${arrayPrecoChar[2]}${arrayPrecoChar[3]},${arrayPreco[1]}`
+        } else if (tamanhoPreco == 5) {
+            precoString = `${arrayPrecoChar[0]}${arrayPrecoChar[1]}.${arrayPrecoChar[2]}${arrayPrecoChar[3]}${arrayPrecoChar[4]},${arrayPreco[1]}`
+        } else if (tamanhoPreco == 6) {
+            precoString = `${arrayPrecoChar[0]}${arrayPrecoChar[1]}${arrayPrecoChar[2]}.${arrayPrecoChar[3]}${arrayPrecoChar[4]}${arrayPreco[5]},${arrayPreco[1]}`
+        }
+
+        pPreco.innerHTML = `R$ ${precoString}`
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
         cart.id = produto.id
+        fav.id = produto.id
 
         //Código para a classificação de estrelas dos produtos
         let totalEstrelas = 0
@@ -96,9 +112,30 @@ function gerarCardInformatica(produto) {
 }
 produtos.forEach(gerarCardInformatica)
 
-if (informaticaVisiveis <= 4) {
-    botaoDireitaInformatica.style.display = 'none'
-    botaoEsquerdaInformatica.style.display = 'none'
+if (larguraSection <= 650) {
+    if (informaticaVisiveis <= 1) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
+} else if (larguraSection <= 922) {
+    if (informaticaVisiveis <= 2) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
+} else if (larguraSection <= 1152) {
+    if (informaticaVisiveis <= 3) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
+} else {
+    if (informaticaVisiveis <= 4) {
+        botaoDireitaEletronicos.style.display = 'none'
+        botaoEsquerdaEletronicos.style.display = 'none'
+
+    }
 }
 
 //VARIÁVEL PARA OCULTAR EXCEDENTE DE CARDS PARA A SECTION DE ELETRÔNICOS
@@ -142,7 +179,23 @@ function gerarCardEletronicos(produto) {
         pNome.innerHTML = produto.nome
         imgProduto.src = produto.imagem
         span.innerHTML = produto.descricao
-        pPreco.innerHTML = `R$ ${produto.preco}`
+        let precoString = String(produto.preco)
+        precoString = precoString.replace('.', ',')
+
+        //Configurando os dados do preço para serem exibidos no formato correto
+        let arrayPreco = precoString.split(',')
+        let tamanhoPreco = arrayPreco[0].length
+        let arrayPrecoChar = arrayPreco[0].split("")
+
+        if (tamanhoPreco == 4) {
+            precoString = `${arrayPrecoChar[0]}.${arrayPrecoChar[1]}${arrayPrecoChar[2]}${arrayPrecoChar[3]},${arrayPreco[1]}`
+        } else if (tamanhoPreco == 5) {
+            precoString = `${arrayPrecoChar[0]}${arrayPrecoChar[1]}.${arrayPrecoChar[2]}${arrayPrecoChar[3]}${arrayPrecoChar[4]},${arrayPreco[1]}`
+        } else if (tamanhoPreco == 6) {
+            precoString = `${arrayPrecoChar[0]}${arrayPrecoChar[1]}${arrayPrecoChar[2]}.${arrayPrecoChar[3]}${arrayPrecoChar[4]}${arrayPreco[5]},${arrayPreco[1]}`
+        }
+
+        pPreco.innerHTML = `R$ ${precoString}`
         cart.src = "./img/cartCard.png"
         fav.src = "./img/Favorite.png"
         cart.id = produto.id
@@ -211,26 +264,21 @@ if (larguraSection <= 650) {
 }
 
 
-
 //VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL e seus diferentes valores para cada tamanho de tela
 var contagemCardsDireitaInformatica
-var contagemCardsEsquerdaInformartica
+var contagemCardsEsquerdaInformartica = 1
 
 if (larguraSection <= 650) {
     contagemCardsDireitaInformatica = 2
-    contagemCardsEsquerdaInformartica = 1
 
 } else if (larguraSection <= 922) {
     contagemCardsDireitaInformatica = 3
-    contagemCardsEsquerdaInformartica = 1
 
 } else if (larguraSection <= 1152) {
     contagemCardsDireitaInformatica = 4
-    contagemCardsEsquerdaInformartica = 1
 
 } else {
     contagemCardsDireitaInformatica = 5
-    contagemCardsEsquerdaInformartica = 1
 
 }
 
@@ -275,23 +323,19 @@ function rodarEsquerdaInformatica() {
 
 //VARIÁVEIS PARA CONTROLE DE OCULTAÇÃO E VISIBILIDADE DOS CARDS PARA O CARROSSEL MANUAL e seus diferentes valores para cada tamanho de tela
 var contagemCardsDireitaEletronicos
-var contagemCardsEsquerdaEletronicos
+var contagemCardsEsquerdaEletronicos = 1
 
 if (larguraSection <= 650) {
     contagemCardsDireitaEletronicos = 2
-    contagemCardsEsquerdaEletronicos = 1
 
 } else if (larguraSection <= 922) {
     contagemCardsDireitaEletronicos = 3
-    contagemCardsEsquerdaEletronicos = 1
 
 } else if (larguraSection <= 1152) {
     contagemCardsDireitaEletronicos = 4
-    contagemCardsEsquerdaEletronicos = 1
 
 } else {
     contagemCardsDireitaEletronicos = 5
-    contagemCardsEsquerdaEletronicos = 1
 
 }
 
@@ -337,6 +381,9 @@ function rodarEsquerdaEletronicos() {
 //Variaveis para saber quantos favoritos estão marcados
 var numeroFavoritos = 0
 const contagemFavoritos = document.getElementById('allFavoritos')
+const abafavoritos = document.getElementById('abaFavoritos')
+const divVazioFavoritos = document.getElementById('vaziosFavoritos')
+var allIdProdutosFavoritos = []
 
 //Função para animação de favoritar e contabilizar
 function animarIconeFavorito(imgFav) {
@@ -345,6 +392,22 @@ function animarIconeFavorito(imgFav) {
         if (imgFav.src.includes('favRed.png')) {
             imgFav.src = './img/Favorite.png'
             numeroFavoritos--
+
+            if (numeroFavoritos == 0) {
+                divVazioFavoritos.style.display = 'flex'
+            }
+
+            //Identificar e remover o card da aba dos favoritos
+            let idProduto = Number(event.target.id)
+            const cardRemovido = document.getElementById(`card${idProduto}`)
+            cardRemovido.parentNode.removeChild(cardRemovido)
+
+            for (let i = 0; i < allIdProdutosFavoritos.length; i++) {
+                if (allIdProdutosFavoritos[i] == event.target.id) {
+                    allIdProdutosFavoritos.splice(i, 1)
+                }
+
+            }
 
         } else if (imgFav.src.includes('Favorite.png')) {
             imgFav.src = './img/favRed.png'
@@ -367,6 +430,40 @@ function animarIconeFavorito(imgFav) {
             setTimeout(() => {
                 alert.style.marginTop = 0
             }, 5000)
+
+            //Criar o card do produto que foi adicionado ao carrinho
+            let idProduto = Number(event.target.id)
+            const divFavoritos = document.createElement('div')
+            const imgFavoritos = document.createElement('img')
+            const divContainer = document.createElement('div')
+            const pFavoritos = document.createElement('p')
+            const spanFavoritos = document.createElement('span')
+
+            divFavoritos.classList.add('cardCarrinho')
+            imgFavoritos.classList.add('imgCarrinho')
+            divContainer.classList.add('containerCarrinho')
+            pFavoritos.classList.add('nomeCarrinho')
+            spanFavoritos.classList.add('precoCarrinho')
+
+            abafavoritos.appendChild(divFavoritos)
+            divFavoritos.append(imgFavoritos, divContainer)
+            divContainer.append(pFavoritos, spanFavoritos)
+
+            if (numeroFavoritos > 0) {
+                divVazioFavoritos.style.display = 'none'
+            }
+
+            //Atribuindo os dados ao card
+            for (let i = 0; i < produtos.length; i++) {
+                if (idProduto == produtos[i].id) {
+                    allIdProdutosFavoritos.push(idProduto)
+                    divFavoritos.id = `card${idProduto}`
+                    imgFavoritos.src = produtos[i].imagem
+                    pFavoritos.innerHTML = produtos[i].nome
+                    spanFavoritos.innerHTML = `R$ ${produtos[i].preco}`
+                }
+
+            }
         }
 
         if (numeroFavoritos <= 0) {
@@ -382,7 +479,7 @@ function animarIconeFavorito(imgFav) {
 var numeroCarrinhos = 0
 const contagemCarrinhos = document.getElementById('allCarrinhos')
 const abaCarrinho = document.getElementById('abaCarrinho')
-const pVazio = document.getElementById('carrinhoVazio')
+const divVazioCarrinho = document.getElementById('vaziosCarrinho')
 const pValorTotalCarrinho = document.getElementById('valorTotalProdutos')
 var allIdProdutosCarrinho = []
 
@@ -397,7 +494,7 @@ function animarIconeCart(imgCart) {
             numeroCarrinhos--
 
             if (numeroCarrinhos == 0) {
-                pVazio.style.display = 'flex'
+                divVazioCarrinho.style.display = 'flex'
             }
 
             //Identificar e remover o card da aba do carrinho
@@ -453,7 +550,7 @@ function animarIconeCart(imgCart) {
             divCarrinho.append(imgCarrinho, divContainer)
             divContainer.append(pCarrinho, spanCarrinho)
 
-            pVazio.style.display = 'none'
+            divVazioCarrinho.style.display = 'none'
 
             //Atribuindo os dados ao card
             for (let i = 0; i < produtos.length; i++) {
@@ -479,8 +576,22 @@ function animarIconeCart(imgCart) {
             }
         })
 
+        //Configurando os dados do preço para serem exibidos no formato correto
+        let somaTotalString = String(somaTotal)
+        somaTotalString = somaTotalString.replace('.' , ',')
+        let arrayPreco = somaTotalString.split(',')
+        let tamanhoPreco = arrayPreco[0].length
+        let arrayPrecoChar = arrayPreco[0].split("")
 
-        pValorTotalCarrinho.innerHTML = `R$ ${somaTotal.toFixed(2)}`
+        if (tamanhoPreco == 4) {
+            somaTotalString = `${arrayPrecoChar[0]}.${arrayPrecoChar[1]}${arrayPrecoChar[2]}${arrayPrecoChar[3]},${arrayPreco[1]}`
+        } else if (tamanhoPreco == 5) {
+            somaTotalString = `${arrayPrecoChar[0]}${arrayPrecoChar[1]}.${arrayPrecoChar[2]}${arrayPrecoChar[3]}${arrayPrecoChar[4]},${arrayPreco[1]}`
+        } else if (tamanhoPreco == 6) {
+            somaTotalString = `${arrayPrecoChar[0]}${arrayPrecoChar[1]}${arrayPrecoChar[2]}.${arrayPrecoChar[3]}${arrayPrecoChar[4]}${arrayPreco[5]},${arrayPreco[1]}`
+        }
+
+        pValorTotalCarrinho.innerHTML = `R$ ${somaTotalString}`
 
         if (numeroCarrinhos == 0) {
             contagemCarrinhos.style.display = 'none'

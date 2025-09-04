@@ -254,6 +254,101 @@ li:hover {
     color: white;
 }
 
+#vaziosCarrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+#cartVazio {
+    width: 45px;
+    height: 40px;
+}
+
+.containerProdutosFavoritos {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    right: -380px;
+    top: 35px;
+    width: 340px;
+    height: 570px;
+    border-radius: 10px;
+    background-color: var(--preto);
+    border-style: solid;
+    border-color: var(--cinza_mediano);
+    transition: 0.4s ease;
+}
+
+.coracao:hover+.containerProdutosFavoritos {
+    right: 80px;
+}
+
+.containerProdutosFavoritos:hover {
+    right: 80px;
+}
+
+.tituloFavoritos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #53008ec5;
+}
+
+#abaFavoritos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 90%;
+    gap: 5px;
+    overflow: auto;
+}
+
+.cardFavoritos {
+    display: flex;
+    padding: 15px;
+    color: var(--preto);
+    gap: 15px;
+    width: 90%;
+    height: 120px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    border-style: solid;
+    border-color: var(--cinza_escuro);
+}
+
+#favoritosVazio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    color: white;
+}
+
+#vaziosFavoritos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+#heartBreak {
+    width: 25px;
+    height: 25px;
+}
+
 #allCarrinhos {
     display: none;
     position: absolute;
@@ -907,6 +1002,7 @@ a:hover {
 
     .moverParaEsquerda {
         margin-bottom: 70px;
+        z-index: 99;
     }
 
     .cardImgs {
@@ -1087,6 +1183,10 @@ a:hover {
     /* Cards e Sections */
     section {
         margin-top: -20px;
+    }
+
+    .moverParaEsquerda {
+        z-index: 99;
     }
 
     .cards {
@@ -1312,6 +1412,7 @@ a:hover {
 
     .moverParaEsquerda {
         margin-bottom: 190px;
+        z-index: 99;
     }
 
     .cardImgs {
@@ -1414,6 +1515,7 @@ a:hover {
 
     .areaCliente {
         margin-left: -470px;
+        gap: 20px;
         width: 430px;
         height: 110px;
     }
@@ -1423,9 +1525,37 @@ a:hover {
         height: 45px;
     }
 
+    .containerProdutosCarrinho {
+        top: 45px;
+        width: 300px;
+        height: 480px;
+    }
+
+    .compras:hover+.containerProdutosCarrinho {
+        right: 50px;
+    }
+
+    .containerProdutosCarrinho:hover {
+        right: 50px;
+    }
+
+    .containerProdutosFavoritos {
+        top: 45px;
+        width: 300px;
+        height: 480px;
+    }
+
+    .coracao:hover+.containerProdutosFavoritos {
+        right: 140px;
+    }
+
+    .containerProdutosFavoritos:hover {
+        right: 140px;
+    }
+
     #allFavoritos {
         font-size: 1.5rem;
-        right: 105px;
+        right: 120px;
         top: 20px;
         width: 30px;
         height: 30px;
@@ -1433,7 +1563,7 @@ a:hover {
 
     #allCarrinhos {
         font-size: 1.5rem;
-        right: 5px;
+        right: 20px;
         top: 20px;
         width: 30px;
         height: 30px;
@@ -1458,9 +1588,10 @@ a:hover {
     }
 
     .cards {
-        margin-bottom: 80px;
+        margin-top: 30px;
+        padding-bottom: 50px;
         width: 90vw;
-        height: 75vh;
+        height: 90%;
     }
 
     .card {
@@ -1475,6 +1606,7 @@ a:hover {
 
     .moverParaEsquerda {
         margin-bottom: 60px;
+        z-index: 99;
     }
 
     .cardImgs img {
@@ -1514,7 +1646,7 @@ a:hover {
     }
 
     .imgAnuncios {
-        margin-bottom: 275px;
+        margin-bottom: 175px;
         width: 90vw;
     }
 
